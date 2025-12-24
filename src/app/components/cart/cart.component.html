@@ -1,0 +1,69 @@
+<div class="cart-container">
+  <div class="container">
+    <h2 class="cart-title">Mon Panier</h2>
+    
+    <div *ngIf="cartItems().length === 0" class="empty-cart">
+      <i class="fas fa-shopping-bag"></i>
+      <p>Votre panier est vide</p>
+      <a routerLink="/" class="btn btn-gold">Continuer vos achats</a>
+    </div>
+
+    <div *ngIf="cartItems().length > 0" class="cart-content">
+      <div class="cart-items">
+        <div *ngFor="let item of cartItems()" class="cart-item">
+          <div class="item-image">
+            <img [src]="item.product.image" [alt]="item.product.name">
+          </div>
+          <div class="item-details">
+            <h3>{{ item.product.name }}</h3>
+            <p class="item-price">{{ item.product.price | number:'1.0-0' }} MAD</p>
+          </div>
+          <div class="item-quantity">
+            <button class="btn-quantity" (click)="updateQuantity(item, item.quantity - 1)">
+              <i class="fas fa-minus"></i>
+            </button>
+            <span class="quantity">{{ item.quantity }}</span>
+            <button class="btn-quantity" (click)="updateQuantity(item, item.quantity + 1)">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+          <div class="item-total">
+            <strong>{{ getItemTotal(item) | number:'1.0-0' }} MAD</strong>
+          </div>
+          <button class="btn-remove" (click)="removeItem(item.product.id)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-header">
+          <h3>Résumé de la commande</h3>
+        </div>
+        <div class="summary-details">
+          <div class="summary-row">
+            <span>Articles ({{ totalItems() }})</span>
+            <span>{{ totalPrice() | number:'1.0-0' }} MAD</span>
+          </div>
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span *ngIf="totalPrice() >= 500" class="free-shipping">Gratuite</span>
+            <span *ngIf="totalPrice() < 500">50 MAD</span>
+          </div>
+          <hr>
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong>{{ (totalPrice() + (totalPrice() >= 500 ? 0 : 50)) | number:'1.0-0' }} MAD</strong>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-checkout" (click)="clearCart()">
+          Passer la commande
+        </button>
+        <button class="btn btn-secondary" (click)="clearCart()">
+          Vider le panier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

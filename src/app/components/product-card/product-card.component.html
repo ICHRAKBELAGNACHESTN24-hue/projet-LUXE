@@ -1,0 +1,17 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+    <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+  </div>
+  <div class="product-info">
+    <h3 class="product-title">{{ product.name }}</h3>
+    <div class="product-rating">
+      <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+    </div>
+    <div class="product-price">{{ product.price | number:'1.0-0' }} MAD</div>
+    <button class="btn btn-add-cart" (click)="addToCart()">
+      <i class="fas fa-shopping-bag"></i> Ajouter au panier
+    </button>
+  </div>
+</div>
+

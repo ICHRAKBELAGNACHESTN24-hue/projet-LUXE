@@ -1,0 +1,135 @@
+<section class="hero" id="home">
+  <div class="hero-slideshow">
+    <img src="assets/images/logo.jpeg" alt="Logo" class="slide slide-1">
+    <img src="assets/images/image1.jpeg" alt="Image 1" class="slide slide-2">
+    <img src="assets/images/image2.jpeg" alt="Image 2" class="slide slide-3">
+  </div>
+  <div class="container">
+    <div class="row hero-content">
+      <div class="col-lg-12">
+        <h1>Collection<br>Exclusive 2025</h1>
+        <p>Découvrez l'excellence et le raffinement à travers notre nouvelle collection premium</p>
+        <button class="btn btn-gold" (click)="scrollToSection($event, 'nouveautes')">Découvrir</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="categories" id="collections">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nos Collections</h2>
+      <p>Explorez nos catégories soigneusement sélectionnées</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="assets/images/image.png" alt="Collection Femme">
+          <div class="category-overlay">
+            <h3>Femme</h3>
+            <p>Collection Printemps</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="assets/images/Homme.jpeg" alt="Collection Homme">
+          <div class="category-overlay">
+            <h3>Homme</h3>
+            <p>Élégance Intemporelle</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="assets/images/Accessoire.jpeg" alt="Accessoires">
+          <div class="category-overlay">
+            <h3>Accessoires</h3>
+            <p>Finition Parfaite</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="nouveautes">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nouveautés</h2>
+      <p>Les dernières pièces de notre collection</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-shipping-fast feature-icon"></i>
+          <h4>Livraison Gratuite</h4>
+          <p>Pour toute commande supérieure à 500 MAD</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-shield-alt feature-icon"></i>
+          <h4>Paiement Sécurisé</h4>
+          <p>Vos transactions sont 100% protégées</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-undo feature-icon"></i>
+          <h4>Retours Faciles</h4>
+          <p>30 jours pour changer d'avis</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 footer-links" id="about">
+        <h5>À Propos</h5>
+        <p>LUXE est votre destination pour des produits premium et exclusifs. Nous nous engageons à offrir la meilleure qualité et service.</p>
+        <div class="social-icons mt-4">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4 footer-links">
+        <h5>Liens Rapides</h5>
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Nouveautés</a></li>
+          <li><a href="#">Promotions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 footer-links">
+        <h5>Service Client</h5>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Livraison</a></li>
+          <li><a href="#">Retours</a></li>
+          <li><a href="#">Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr style="border-color: #444; margin: 3rem 0 2rem;">
+    <div class="text-center">
+      <p>&copy; 2025 LUXE. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
